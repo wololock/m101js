@@ -1,0 +1,8 @@
+{
+  "name": "express_intro",
+  "version": "0.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~4.13"
+  }
+}
