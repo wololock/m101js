@@ -1,0 +1,1 @@
+Exercises from https://university.mongodb.com/courses/M101JS/about This repository does not contain homework exercises.
