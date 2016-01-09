@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "main": "app.js",
   "dependencies": {
-    "express": "~4.13"
+    "express": "~4.13",
+    "consolidate": "~0.13.1",
+    "nunjucks": "~2.3.0"
   }
 }
