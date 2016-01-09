@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <style>
+            body { font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif; }
+        </style>
+    </head>
+    <body>
+    <h1>Movies</h1>
+    <ul>
+    {% for movie in movies %}
+        <li><a href="http://www.imdb.com/title/{{movie.imdb}}" target="_blank">{{movie.title}}, {{movie.year}}</a></li>
+    {% else %}
+        <li>No movies found.</li>
+    {% endfor %}
+    </ul>
+    </body>
+</html>
