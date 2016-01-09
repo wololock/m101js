@@ -2,11 +2,13 @@ var express = require('express'),
     engines = require('consolidate'),
     MongoClient = require('mongodb').MongoClient,
     assert = require('assert'),
+    bodyParser = require('body-parser'),
     app = express();
 
 app.engine('html', engines.nunjucks);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
+app.use(bodyParser());
 
 MongoClient.connect('mongodb://localhost:27017/video', function(err, db){
     assert.equal(null, err);
@@ -16,6 +18,20 @@ MongoClient.connect('mongodb://localhost:27017/video', function(err, db){
         db.collection('movies').find({}).toArray(function(err, docs){
             res.render('movies', { movies: docs });
         });
+    });
+
+    app.get('/form', function(req,res){
+        res.render('form', { fruits: ['apple', 'orange', 'banana', 'peach'] });
+    });
+
+    app.post('/favorite_fruits', function(req, res) {
+        var favorite = req.body.fruit;
+
+        if (typeof favorite == 'undefined') {
+            res.send("Please choose a fruit!");
+        } else {
+            res.send("Your favorite fruit is " + favorite);
+        }
     });
 
     app.get('/:name', function(req,res,next){
