@@ -1,0 +1,10 @@
+mongodb:
+  image: mongo:3.2
+  command: mongod --smallfiles
+  hostname: mongodb
+  dns: 172.17.42.1
+  ports:
+    - "27017:27017"
+  volumes:
+    - data/db:/data/db
+
